@@ -1,0 +1,2 @@
+select sum(quantidade_estoque)
+from produtos;
