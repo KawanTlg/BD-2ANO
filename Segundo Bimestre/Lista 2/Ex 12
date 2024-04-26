@@ -1,0 +1,3 @@
+select nome,  preco, descricao, quantidade_estoque
+from produtos 
+where preco < 100 and quantidade_estoque > 0;
