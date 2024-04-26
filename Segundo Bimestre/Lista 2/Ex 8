@@ -1,0 +1,3 @@
+select nome, preco
+from produtos
+where preco > (select avg(preco) from produtos);
