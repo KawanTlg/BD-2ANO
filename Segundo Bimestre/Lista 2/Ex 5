@@ -1,0 +1,4 @@
+select nome, preco
+from produtos
+order by preco 
+limit 5;
