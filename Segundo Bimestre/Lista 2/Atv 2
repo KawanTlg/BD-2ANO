@@ -1,0 +1,2 @@
+ex 2: select avg(preco)
+from produtos;
