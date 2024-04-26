@@ -1,0 +1,4 @@
+select nome, preco, descricao
+from produtos
+where preco between 50 and 150
+order by preco;
