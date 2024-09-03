@@ -19,8 +19,8 @@ WHERE customer_id = 1;
 SELECT first_name, last_name, SUM(quantity)*SUM(price)
 FROM customers
 INNER JOIN orders
-ON customers.customer_id = Orders.customer_id
+ON customer_id.customers = customer_id.orders
 INNER JOIN order_items
-ON order_items.order_id = Orders.order_id
+ON  order_id.orders = order_id.order_items
 INNER JOIN products
-ON products.product_id = Order_items.product_id;
+ON  product_id.order_items = product_id.products;  
