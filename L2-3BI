@@ -1,0 +1,48 @@
+1:
+PRIMEIRO DATABASE 4
+
+USE db_ecommerce_exam;
+
+SELECT item_pedido_id, nome
+FROM itens_pedido JOIN produtos
+ON itens_pedido.produto_id = produtos.produto_id
+;
+
+2:
+SEGUNDO DATABASE 2
+
+USE db_crm_exam;
+SELECT nome, cliente_id as "id do cliente"
+FROM campanhas
+JOIN participacoes_campanha
+ON campanhas.campanha_id = participacoes_campanha.campanha_id
+;
+
+3:
+TERCEIRO DATABASE 2
+
+USE db_financas_exam;
+SELECT nome, contas.tipo as "tipo_conta", saldo, data_criacao, transacoes.tipo as "tipo_transacao", valor, data_transacao, descricao
+FROM contas LEFT JOIN transacoes
+ON contas.conta_id = transacoes.conta_id
+;
+
+4:
+QUARTO DATABASE
+
+USE db_prontuario_exam;
+SELECT nome, data_consulta, medico, diagnostico, prescricao, observacoes
+FROM prontuarios
+JOIN pacientes
+ON prontuarios.paciente_id = pacientes.paciente_id
+;
+
+5:
+QUINTO DATABASE 1
+
+USE db_logistica_exam;
+SELECT produtos.nome, descricao, preco, estoque, fornecedores.nome
+FROM produtos
+LEFT JOIN fornecedores
+ON produtos.fornecedor_id = fornecedores.fornecedor_id;
+
