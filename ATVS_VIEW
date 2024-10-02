@@ -1,0 +1,38 @@
+use db_atividade_view;
+
+/*ATIVIDADE UNO:*/
+CREATE OR REPLACE VIEW VW_ALUNO_DISCIPLINA AS
+SELECT aluno.nome nome_aluno, disciplina.nome nome_discplina, curso.nome nome_curso
+FROM aluno 
+INNER JOIN matricula ON aluno.id_aluno = matricula.id_aluno
+INNER JOIN disciplina ON disciplina.id_disciplina = matricula.id_disciplina
+INNER JOIN curso ON curso.id_curso= disciplina.id_curso;
+
+SELECT * FROM VW_ALUNO_DISCIPLINA;
+
+/*ATIVIDADE DOS:*/
+CREATE OR REPLACE VIEW VW_DSCNOME_QTDMATRICULA AS
+SELECT disciplina.nome nome_discplina, COUNT(matricula.id_disciplina) qtd_matriculas
+FROM disciplina
+INNER JOIN matricula ON matricula.id_disciplina = disciplina.id_disciplina
+GROUP BY disciplina.nome;
+
+SELECT * FROM VW_DSCNOME_QTDMATRICULA;
+
+/*ATIVIDADE TRES:*/
+CREATE OR REPLACE VIEW VW_ALUNOME_DSCNOME_MTRSTATUS AS
+SELECT aluno.nome nome_aluno, disciplina.nome nome_disciplina, matricula.status status_matricula
+FROM aluno
+INNER JOIN matricula ON aluno.id_aluno = matricula.id_aluno
+INNER JOIN disciplina ON disciplina.id_disciplina = matricula.id_disciplina;
+
+SELECT * FROM VW_ALUNOME_DSCNOME_MTRSTATUS;
+
+/*ATIVIDADE QUATRO:*/
+CREATE OR REPLACE VIEW VW_PSSNOME_DSCNOME_TRMHORARIO AS
+SELECT professor.nome nome_professor, disciplina.nome nome_disciplina, turma.horario horario_turma
+FROM professor
+INNER JOIN turma ON professor.id_professor = turma.id_professor
+INNER JOIN disciplina ON disciplina.id_disciplina = turma.id_disciplina;
+
+SELECT * FROM VW_PSSNOME_DSCNOME_TRMHORARIO;
